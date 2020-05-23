@@ -19,6 +19,7 @@ class Soldier{
 		return this;
 	}
 	uint getOwner(){return _owner;}
+	int getHealth(){return _health;}
 	
 
 };
