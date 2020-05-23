@@ -1,0 +1,11 @@
+class:
+	FootSoldier (cpp+hpp)
+	FootCommander (cpp+hpp)
+	Sniper(cpp+hpp)
+	SniperCommander (cpp+hpp)
+	Paramedic (cpp+hpp)
+	ParamedicCommander (cpp+hpp)
+	Board (cpp)
+	Soldier (cpp+hpp)
+	test (cpp)
+		
