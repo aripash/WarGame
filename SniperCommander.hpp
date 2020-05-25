@@ -1,8 +1,8 @@
 
-class SniperCommander : public Soldier{
+class SniperCommander : public Sniper{
 	
 	public:
-	SniperCommander(uint owner):Soldier{owner}{_maxHealth=120; _health=120; _damage=100;}
+	SniperCommander(uint owner):Sniper{owner}{_maxHealth=120; _health=120; _damage=100;}
 	virtual void action(){}
 
 }; 
