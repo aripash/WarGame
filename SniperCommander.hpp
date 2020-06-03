@@ -21,7 +21,7 @@ class SniperCommander : public Sniper{
 						Soldier* temp=board.at(i).at(j);
 						if(temp!=nullptr){
 							if(temp->getOwner()!=_owner){
-								double distance=sqrt(((y-i)*(y-i))+((x-j)(x-j)));
+								double distance=sqrt(((y-i)*(y-i))+((x-j)*(x-j)));
 								if(distance>maxdistance){
 									maxdistance=distance;
 									farthest=temp;

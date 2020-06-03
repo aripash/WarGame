@@ -16,7 +16,7 @@ class ParamedicCommander : public Paramedic{
 				bool found=false;
 				for(int i=-1;i<=1||found;i++){
 					for(int j=-1;j<=1||found;j++){
-						soldier* temp=board.at(i+y).at(j+x);
+						Soldier* temp=board.at(i+y).at(j+x);
 						if(temp!=nullptr){
 							if(temp->getOwner()==_owner){
 								temp->damage(_damage);
@@ -29,7 +29,7 @@ class ParamedicCommander : public Paramedic{
 				for(int i =0;i<board.size();i++){
 					for(int j=0;j<board.at(0).size();j++){
 						pair index(i,j);
-						soldier* temp=board[index];
+						Soldier* temp=board[index];
 						if(typeid(temp)==typeid(Paramedic))temp->action(board, pair(i,j));
 					}
 				}
