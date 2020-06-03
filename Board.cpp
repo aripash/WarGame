@@ -16,8 +16,8 @@ void Board:: move(uint player_number, std::pair<int,int> source, MoveDIR directi
 		
 		int x=0;
 		int y=0;
-		if(direction==MoveDIR::Up)y=-1;
-		else if(direction==MoveDIR::Down)y=1;
+		if(direction==MoveDIR::Up)y=1;
+		else if(direction==MoveDIR::Down)y=-1;
 		else if(direction==MoveDIR::Left)x=-1;
 		else if(direction==MoveDIR::Right)x=1;
 		std::pair destination(source.first+y,source.second+x);
