@@ -28,8 +28,7 @@ class ParamedicCommander : public Paramedic{
 				
 				for(int i =0;i<board.size();i++){
 					for(int j=0;j<board.at(0).size();j++){
-						pair index(i,j);
-						Soldier* temp=board[index];
+						Soldier* temp=board.at(i).at(j);
 						if(typeid(temp)==typeid(Paramedic))temp->action(board, pair(i,j));
 					}
 				}
