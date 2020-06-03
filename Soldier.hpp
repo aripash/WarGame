@@ -1,3 +1,7 @@
+#include <vector>
+
+using namespace std;
+
 class Soldier{
 	protected:
 	int _maxHealth;
@@ -7,16 +11,14 @@ class Soldier{
 	
 	public:
 	Soldier(uint owner):_owner{owner}{}
-	virtual void action(){}
+	
+	virtual void action(vector<vector<Soldier*>> &board, pair<int,int> me){}
 
-	Soldier* damage(int damage){
+	int damage(int damage){
 		_health-=damage;
-		if(_health<=0)return nullptr;
-		if(_health>_maxHealth){
-			_health=_maxHealth;
-			return this;
-		}
-		return this;
+		if(_health<0) _health=0;
+		else if(_health>_maxHealth) _health=_maxHealth;
+		return _health;
 	}
 	uint getOwner(){return _owner;}
 	int getHealth(){return _health;}

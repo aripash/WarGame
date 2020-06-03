@@ -9,24 +9,26 @@ Soldier*& Board:: operator[](std::pair<int,int> location){
 Soldier* Board:: operator[](std::pair<int,int> location) const{
 		return board.at(location.first).at(location.second);
 	}
-void Board:: move(uint player_number, std::pair<int,int> source, MoveDIR direction){//implemented an incomplete move to allow the tests to work. 
-		if((*this)[source]==nullptr)throw "std::invalid_argument";
-		if((*this)[source]->getOwner()!=player_number)throw "std::invalid_argument";
+void Board:: move(uint player_number, std::pair<int,int> source, MoveDIR direction){
+	
+		if((*this)[source]==nullptr)throw "std::invalid_argument(noone)";
+		if((*this)[source]->getOwner()!=player_number)throw "std::invalid_argument(mine)";
 		
 		int x=0;
 		int y=0;
-		if(direction==MoveDIR::Up)y=1;
-		else if(direction==MoveDIR::Down)y=-1;
+		if(direction==MoveDIR::Up)y=-1;
+		else if(direction==MoveDIR::Down)y=1;
 		else if(direction==MoveDIR::Left)x=-1;
 		else if(direction==MoveDIR::Right)x=1;
 		std::pair destination(source.first+y,source.second+x);
 		
-		if(destination.first<0||destination.first>=board.size())throw "std::invalid_argument";
-		if(destination.second<0||destination.second>=board.at(0).size())throw "std::invalid_argument";
-		if((*this)[destination]!=nullptr)throw "std::invalid_argument";
+		if(destination.first<0||destination.first>=board.size())throw "std::invalid_argument(ooby)";
+		if(destination.second<0||destination.second>=board.at(0).size())throw "std::invalid_argument(oobx)";
+		if((*this)[destination]!=nullptr)throw "std::invalid_argument(who)";
 		
 		(*this)[destination]=(*this)[source];
 		(*this)[source]=nullptr;
+		(*this)[destination]->action(board, destination);
 		
 		
 	}
